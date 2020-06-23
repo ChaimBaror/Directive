@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'directives';
+
+  arr =[1,1,1,1,1]
 }
+

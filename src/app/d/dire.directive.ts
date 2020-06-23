@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener } from '@angular/core';
+import { Directive, ElementRef, HostListener, HostBinding } from '@angular/core';
 import { ContService } from '../services/cont.service';
 
 @Directive({
@@ -10,15 +10,22 @@ export class DireDirective {
 
   @HostListener('click')onClick(){
     console.log("this el for click "+ this.el);
-   this.el.nativeElement.style.backgroundColor = 'yellow';
+   this.el.nativeElement.style.backgroundColor = 'Coral';
    this.counterSVC.clickimCounter++;
   }
 
+ 
+  @HostBinding('style.backgroundColor') color = "DarkGrey"; 
   @HostListener('mouseenter') onMouseEnter(){
-    this.el.nativeElement.style.backgroundColor = this.el.nativeElement.style.backgroundColor == 'Violet' ? 'yellow' : 'Violet';
-    console.log("this el for mouseenter "+ this.el);
-    this.counterSVC.hoverCounter++
+    this.color= this.color === 'Violet' ? 'yellow' : 'Violet';
   }
+
+
+  // @HostListener('mouseenter') onMouseEnter(){
+  //   this.el.nativeElement.style.backgroundColor = this.el.nativeElement.style.backgroundColor == 'Violet' ? 'yellow' : 'Violet';
+  //   console.log("this el for mouseenter "+ this.el);
+  //   this.counterSVC.hoverCounter++
+  // }
 
   @HostListener('dblclick')ondblClic(){
     console.log("this el for click "+ this.el);

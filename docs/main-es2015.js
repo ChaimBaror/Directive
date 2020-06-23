@@ -266,25 +266,31 @@ class DireDirective {
     constructor(el, counterSVC) {
         this.el = el;
         this.counterSVC = counterSVC;
+        this.color = "DarkGrey";
     }
     onClick() {
         console.log("this el for click " + this.el);
-        this.el.nativeElement.style.backgroundColor = 'yellow';
+        this.el.nativeElement.style.backgroundColor = 'Coral';
         this.counterSVC.clickimCounter++;
     }
     onMouseEnter() {
-        this.el.nativeElement.style.backgroundColor = this.el.nativeElement.style.backgroundColor == 'Violet' ? 'yellow' : 'Violet';
-        console.log("this el for mouseenter " + this.el);
-        this.counterSVC.hoverCounter++;
+        this.color = this.color === 'Violet' ? 'yellow' : 'Violet';
     }
+    // @HostListener('mouseenter') onMouseEnter(){
+    //   this.el.nativeElement.style.backgroundColor = this.el.nativeElement.style.backgroundColor == 'Violet' ? 'yellow' : 'Violet';
+    //   console.log("this el for mouseenter "+ this.el);
+    //   this.counterSVC.hoverCounter++
+    // }
     ondblClic() {
         console.log("this el for click " + this.el);
         this.el.nativeElement.style.backgroundColor = 'red';
     }
 }
 DireDirective.ɵfac = function DireDirective_Factory(t) { return new (t || DireDirective)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_cont_service__WEBPACK_IMPORTED_MODULE_1__["ContService"])); };
-DireDirective.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({ type: DireDirective, selectors: [["", "appDire", ""]], hostBindings: function DireDirective_HostBindings(rf, ctx) { if (rf & 1) {
+DireDirective.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({ type: DireDirective, selectors: [["", "appDire", ""]], hostVars: 2, hostBindings: function DireDirective_HostBindings(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function DireDirective_click_HostBindingHandler() { return ctx.onClick(); })("mouseenter", function DireDirective_mouseenter_HostBindingHandler() { return ctx.onMouseEnter(); })("dblclick", function DireDirective_dblclick_HostBindingHandler() { return ctx.ondblClic(); });
+    } if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵstyleProp"]("background-color", ctx.color);
     } } });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](DireDirective, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"],
@@ -294,6 +300,9 @@ DireDirective.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDire
     }], function () { return [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] }, { type: _services_cont_service__WEBPACK_IMPORTED_MODULE_1__["ContService"] }]; }, { onClick: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"],
             args: ['click']
+        }], color: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
+            args: ['style.backgroundColor']
         }], onMouseEnter: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"],
             args: ['mouseenter']

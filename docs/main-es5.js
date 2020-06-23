@@ -530,22 +530,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.el = el;
         this.counterSVC = counterSVC;
+        this.color = "DarkGrey";
       }
 
       _createClass(DireDirective, [{
         key: "onClick",
         value: function onClick() {
           console.log("this el for click " + this.el);
-          this.el.nativeElement.style.backgroundColor = 'yellow';
+          this.el.nativeElement.style.backgroundColor = 'Coral';
           this.counterSVC.clickimCounter++;
         }
       }, {
         key: "onMouseEnter",
         value: function onMouseEnter() {
-          this.el.nativeElement.style.backgroundColor = this.el.nativeElement.style.backgroundColor == 'Violet' ? 'yellow' : 'Violet';
-          console.log("this el for mouseenter " + this.el);
-          this.counterSVC.hoverCounter++;
-        }
+          this.color = this.color === 'Violet' ? 'yellow' : 'Violet';
+        } // @HostListener('mouseenter') onMouseEnter(){
+        //   this.el.nativeElement.style.backgroundColor = this.el.nativeElement.style.backgroundColor == 'Violet' ? 'yellow' : 'Violet';
+        //   console.log("this el for mouseenter "+ this.el);
+        //   this.counterSVC.hoverCounter++
+        // }
+
       }, {
         key: "ondblClic",
         value: function ondblClic() {
@@ -564,6 +568,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     DireDirective.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
       type: DireDirective,
       selectors: [["", "appDire", ""]],
+      hostVars: 2,
       hostBindings: function DireDirective_HostBindings(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function DireDirective_click_HostBindingHandler() {
@@ -573,6 +578,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           })("dblclick", function DireDirective_dblclick_HostBindingHandler() {
             return ctx.ondblClic();
           });
+        }
+
+        if (rf & 2) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵstyleProp"]("background-color", ctx.color);
         }
       }
     });
@@ -594,6 +603,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         onClick: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"],
           args: ['click']
+        }],
+        color: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
+          args: ['style.backgroundColor']
         }],
         onMouseEnter: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"],

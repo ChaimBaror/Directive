@@ -417,8 +417,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     ResultComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: ResultComponent,
       selectors: [["app-result"]],
-      decls: 13,
-      vars: 2,
+      decls: 19,
+      vars: 3,
+      consts: [[2, "font-size", "36px", "text-align", "center", "display", "flex", "justify-content", "space-around"]],
       template: function ResultComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p");
@@ -427,7 +428,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 0);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "label");
 
@@ -457,6 +458,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](13, "br");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](14, "br");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "label");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "Double clicks : ");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "span");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](18);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
 
@@ -468,6 +485,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.svc.clickimCounter);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.svc.dblclickCounter);
         }
       },
       styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBzL3Jlc3VsdC9yZXN1bHQuY29tcG9uZW50LmNzcyJ9 */"]
@@ -544,17 +565,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "onMouseEnter",
         value: function onMouseEnter() {
           this.color = this.color === 'Violet' ? 'yellow' : 'Violet';
-        } // @HostListener('mouseenter') onMouseEnter(){
-        //   this.el.nativeElement.style.backgroundColor = this.el.nativeElement.style.backgroundColor == 'Violet' ? 'yellow' : 'Violet';
-        //   console.log("this el for mouseenter "+ this.el);
-        //   this.counterSVC.hoverCounter++
-        // }
-
+          this.counterSVC.hoverCounter++;
+        }
       }, {
         key: "ondblClic",
         value: function ondblClic() {
           console.log("this el for click " + this.el);
           this.el.nativeElement.style.backgroundColor = 'red';
+          this.counterSVC.dblclickCounter++;
         }
       }]);
 
@@ -653,6 +671,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       this.hoverCounter = 0;
       this.clickimCounter = 0;
+      this.dblclickCounter = 0;
     };
 
     ContService.ɵfac = function ContService_Factory(t) {

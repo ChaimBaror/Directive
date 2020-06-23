@@ -18,18 +18,15 @@ export class DireDirective {
   @HostBinding('style.backgroundColor') color = "DarkGrey"; 
   @HostListener('mouseenter') onMouseEnter(){
     this.color= this.color === 'Violet' ? 'yellow' : 'Violet';
+    this.counterSVC.hoverCounter++
   }
 
 
-  // @HostListener('mouseenter') onMouseEnter(){
-  //   this.el.nativeElement.style.backgroundColor = this.el.nativeElement.style.backgroundColor == 'Violet' ? 'yellow' : 'Violet';
-  //   console.log("this el for mouseenter "+ this.el);
-  //   this.counterSVC.hoverCounter++
-  // }
 
   @HostListener('dblclick')ondblClic(){
     console.log("this el for click "+ this.el);
    this.el.nativeElement.style.backgroundColor = 'red';
+   this.counterSVC.dblclickCounter++
   }
 
 }

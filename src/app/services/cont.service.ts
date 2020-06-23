@@ -9,4 +9,5 @@ export class ContService {
 
   public hoverCounter:number =0
   public clickimCounter:number=0
+  public dblclickCounter:number=0
 }

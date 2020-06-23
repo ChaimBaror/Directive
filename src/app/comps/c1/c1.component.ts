@@ -17,6 +17,5 @@ export class C1Component implements OnInit {
   }
 
   arr=[1,2,3,4,5]
-  
 
 }

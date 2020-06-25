@@ -2,9 +2,15 @@
 
 
 
-<ul>
-    <li appDire *ngFor ="let x of arr">{{x}}</li>
+
+<ul  *ngFor ="let x of arr">
+    <li appDire >
+        <label> Id :</label><span>{{x.id}}</span>
+    <h2 >{{x.name}}</h2>
+   <label> age :</label><span>{{x.age}}</span>
+    <h3 *ngIf="x.isBossy">B</h3></li>
 </ul>
+
 
 
 

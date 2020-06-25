@@ -1,0 +1,13 @@
+.result{
+  font-size: 50px ;
+   text-align: center ;
+   display: flex;
+   justify-content: space-around;
+    border: 1px solid rosybrown;box-shadow:
+     5px 5px 5px 5px  #888;
+     color: yellow; 
+     background: black;
+     padding-top: 20px;
+     margin:3% ;
+
+}
